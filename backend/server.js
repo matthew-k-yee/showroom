@@ -60,6 +60,20 @@ app.get('/genres', async (req, res) => {
   }
 })
 
+app.post('/users', async (req, res) => {
+  try {
+    const data = req.body
+    const user = await User.create(data)
+    res.json({
+      user
+    })
+  } catch (e) {
+    res.status(500).json({
+      msg: e.message
+    })
+  }
+})
+
 // app.get('/genres/:genre_id', async (req, res) => {
 //   try { 
 //     const id = parseInt(req.params.genre_id);
