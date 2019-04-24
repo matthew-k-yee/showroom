@@ -4,7 +4,6 @@ const sequelize = new Sequelize({
   database: 'showcase.db',
   dialect: 'sqlite',
   storage: './showcase.db',
-  // operatorsAliases: false
 });
 
 const User = sequelize.define('user', {
@@ -17,18 +16,29 @@ const Genre = sequelize.define('genre', {
 
 const Show = sequelize.define('show', {
   title: Sequelize.STRING,
-  img_url: Sequelize.STRING
+  img_url: Sequelize.STRING,
+  user_id: Sequelize.INTEGER,
+  genre_id: Sequelize.INTEGER,
 });
 
-// const Comment = sequelize.define('comment', {
-//   comment_body: Sequelize.STRING
-// });
+const Comment = sequelize.define('comment', {
+  comment_body: Sequelize.STRING,
+  user_id : Sequelize.INTEGER,
+  show_id: Sequelize.INTEGER,
+});
 
-Show.hasMany(User);
+
+Genre.hasMany(Show)
 Show.belongsTo(Genre);
 
-// Comment.belongsTo(User);
-// Comment.belongsTo(Show)
+Show.belongsTo(User)
+User.hasMany(Show)
+
+User.hasMany(Comment)
+Comment.belongsTo(User);
+
+Show.hasMany(Comment)
+Comment.belongsTo(Show)
 
 
 module.exports = {
@@ -36,5 +46,5 @@ module.exports = {
   User,
   Genre,
   Show,
-  // Comment
+  Comment
 };
