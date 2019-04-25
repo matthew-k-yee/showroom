@@ -33,44 +33,44 @@ async function seed() {
       {
         title: 'Game of Thrones',
         img_url: 'https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg',
-        user_id: 1,
-        genre_id: 4
+        userId: 1,
+        genreId: 4
       },
       {
         title: 'Brooklyn 99',
         img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Brooklyn_Nine-Nine_Logo.png/500px-Brooklyn_Nine-Nine_Logo.png',
-        user_id: 2,
-        genre_id: 3
+        userId: 2,
+        genreId: 3
       },
       
       {
         title: 'Peaky Blinders',
         img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Peaky_Blinders_titlecard.jpg',
-        user_id: 3,
-        genre_id: 1
+        userId: 3,
+        genreId: 1
       }
     ]);
 
     const comment = await Comment.bulkCreate ([
       {
         comment_body: 'WINTER IS COMING!',
-        user_id: 1,
-        show_id: 1
+        userId: 1,
+        showId: 1
       },
       {
         comment_body: 'BEND THE KNEE!',
-        user_id: 3,
-        show_id: 1
+        userId: 3,
+        showId: 1
       },
       {
         comment_body: 'TERRY LOVES HIS YOGURT',
-        user_id: 2,
-        show_id: 2
+        userId: 2,
+        showId: 2
       },
       {
         comment_body: 'PEAKY F**** BLINDERS',
-        user_id: 1,
-        show_id: 3
+        userId: 1,
+        showId: 3
       },
     ])
 

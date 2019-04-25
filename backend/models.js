@@ -17,22 +17,22 @@ const Genre = sequelize.define('genre', {
 const Show = sequelize.define('show', {
   title: Sequelize.STRING,
   img_url: Sequelize.STRING,
-  user_id: Sequelize.INTEGER,
-  genre_id: Sequelize.INTEGER,
+  // user_id: Sequelize.INTEGER,
+  // genre_id: Sequelize.INTEGER,
 });
 
 const Comment = sequelize.define('comment', {
   comment_body: Sequelize.STRING,
-  user_id : Sequelize.INTEGER,
-  show_id: Sequelize.INTEGER,
+  // user_id : Sequelize.INTEGER,
+  // show_id: Sequelize.INTEGER,
 });
 
 
 Genre.hasMany(Show)
 Show.belongsTo(Genre);
 
-Show.belongsTo(User)
 User.hasMany(Show)
+Show.belongsTo(User)
 
 User.hasMany(Comment)
 Comment.belongsTo(User);
