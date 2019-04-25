@@ -1,9 +1,10 @@
 import React from 'react';
+import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Nav from './components/Nav'
 import Home from './components/Home'
-import Users from './components/Users'
-import TVShows from './components/TVShows'
+import Users from './components/Users/Users'
+import TVShows from './components/Shows/TVShows'
 import Genres from './components/Genres'
 
 import './App.css';
