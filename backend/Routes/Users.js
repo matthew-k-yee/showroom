@@ -50,7 +50,7 @@ UsersRouter.get('/:user_id/shows', async (req, res) => {
     const singleUser = await User.findByPk(req.params.user_id, {
       include: [{
         model: Show,
-        attributes: ['title']
+        attributes: ['title', 'img_url']
       }]
     })
     res.json({singleUser})

@@ -48,6 +48,24 @@ async function seed() {
         img_url: 'https://upload.wikimedia.org/wikipedia/en/e/e8/Peaky_Blinders_titlecard.jpg',
         userId: 3,
         genreId: 1
+      },
+      {
+        title: 'Fresh Off The Boat',
+        img_url: 'https://upload.wikimedia.org/wikipedia/en/1/11/Fresh_Off_the_Boat_intertitle.png',
+        userId: 1,
+        genreId: 2
+      },
+      {
+        title: 'The Office',
+        img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/The_Office_US_logo.svg/1000px-The_Office_US_logo.svg.png',
+        userId: 2,
+        genreId: 3,
+      },
+      {
+        title: 'Supernatural',
+        img_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Supernatural_2005_logo.svg/1920px-Supernatural_2005_logo.svg.png',
+        userId: 3,
+        genreId: 1
       }
     ]);
 

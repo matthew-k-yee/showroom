@@ -37,7 +37,7 @@ GenresRouter.get('/:genre_id/shows', async (req, res) => {
     const singleGenre = await Genre.findByPk(req.params.genre_id, {
       include: [{
         model: Show,
-        attributes: ['title']
+        attributes: ['title', 'img_url']
       }]
     })
     res.json({singleGenre})
