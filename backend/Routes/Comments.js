@@ -9,11 +9,10 @@ CommentsRouter.get('/', async (req, res) => {
   try {
     const commentsData =  await Comment.findAll();
     const comments = commentsData.map( comment => comment.dataValues)
-    res.json({ comments})
+    res.json({comments})
   } catch (e) {
-    console.log(e)
-    res.json({
-      error: e
+    res.status(500).json({
+      msg: e.message
     })
   }
 })
@@ -22,9 +21,7 @@ CommentsRouter.post('/', async (req, res) => {
   try {
     const data = req.body
     const comment = await Comment.create(data)
-    res.json({
-      comment
-    })
+    res.json({comment})
   } catch (e) {
     res.status(500).json({
       msg: e.message

@@ -10,29 +10,30 @@ ShowsRouter.get('/', async (req, res) => {
   try {
     const showData =  await Show.findAll();
     const shows = showData.map( show => show.dataValues)
-    res.json({ shows })
+    res.json({shows})
   } catch (e) {
     console.log(e)
-    res.json({
-      error: e
+    res.status(500).json({
+      msg: e.message
     })
-  }
+  } 
 }) 
 
 // GET one show
-ShowsRouter.get('/:show_id', async ( req, res) => {
+ShowsRouter.get('/:show_id', async (req, res) => {
   try { 
     const id = req.params.show_id;
     const show = await Show.findByPk(id);
-    res.json({
-      show: show
-    })
+    res.json({show})
   } catch(e) {
     console.log(e);
-    res.send(404)
+    res.status(500).json({
+      msg: e.message
+    })
   }
 })
 
+// GET all comments for one show
 ShowsRouter.get('/:show_id/comments', async (req, res) => {
   try {
     const show = await Show.findByPk(req.param.show_id);
@@ -43,7 +44,7 @@ ShowsRouter.get('/:show_id/comments', async (req, res) => {
         attributes: ['comment_body']
       }]
     })
-    res.json(allComments)
+    res.json({allComments})
   } catch (e) {
     res.status(500).json({
       msg: e.message
@@ -51,14 +52,12 @@ ShowsRouter.get('/:show_id/comments', async (req, res) => {
   }
 })
 
-
-ShowsRouter.post('/', async ( req, res) => {
+// POST new show
+ShowsRouter.post('/', async (req, res) => {
   try {
     const data = req.body
     const show = await Show.create(data)
-    res.json({
-      show 
-    })
+    res.json({show})
   } catch (e) {
     res.status(500).json({
       msg: e.message

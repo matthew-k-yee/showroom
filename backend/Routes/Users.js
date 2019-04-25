@@ -20,13 +20,14 @@ UsersRouter.get('/', async(req, res) => {
 // GET single user
 UsersRouter.get('/:user_id', async (req, res) => {
 	try {
-		const id = parseInt(req.params.user_id);
+		const id = req.params.user_id;
 		const user = await User.findByPk(id);
 		res.json({user: user.dataValues});
-	} catch(e) {
-		console.log(e);
-		res.send(404);
-	}
+	} catch (e) {
+    res.status(500).json({
+      msg: e.message
+    })
+  }
 });
 
 // POST new user
@@ -34,9 +35,7 @@ UsersRouter.post('/', async (req, res) => {
   try {
     const data = req.body
     const user = await User.create(data)
-    res.json({
-      user
-    })
+    res.json({user})
   } catch (e) {
     res.status(500).json({
       msg: e.message
@@ -54,7 +53,7 @@ UsersRouter.get('/:user_id/shows', async (req, res) => {
         attributes: ['title']
       }]
     })
-    res.json(singleUser)
+    res.json({singleUser})
   } catch (e) {
     res.status(500).json({
       msg: e.message

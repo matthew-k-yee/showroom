@@ -16,15 +16,11 @@ const Genre = sequelize.define('genre', {
 
 const Show = sequelize.define('show', {
   title: Sequelize.STRING,
-  img_url: Sequelize.STRING,
-  // user_id: Sequelize.INTEGER,
-  // genre_id: Sequelize.INTEGER,
+  img_url: Sequelize.STRING
 });
 
 const Comment = sequelize.define('comment', {
-  comment_body: Sequelize.STRING,
-  // user_id : Sequelize.INTEGER,
-  // show_id: Sequelize.INTEGER,
+  comment_body: Sequelize.STRING
 });
 
 
