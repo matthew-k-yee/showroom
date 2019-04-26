@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 // import ExampleUser from './ExampleUser'
-import UserInfo from './UserInfo'
 import AllUsers from './AllUsers'
 
 const BASE_URL = 'http://localhost:3000'
