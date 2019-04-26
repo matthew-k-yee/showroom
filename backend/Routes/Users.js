@@ -21,8 +21,9 @@ UsersRouter.get('/', async(req, res) => {
 UsersRouter.get('/:user_id', async (req, res) => {
 	try {
 		const id = req.params.user_id;
-		const user = await User.findByPk(id);
-		res.json({user: user.dataValues});
+    const resp = await User.findByPk(id);
+    const user = resp.dataValues
+		res.json({user});
 	} catch (e) {
     res.status(500).json({
       msg: e.message
@@ -50,7 +51,7 @@ UsersRouter.get('/:user_id/shows', async (req, res) => {
     const singleUser = await User.findByPk(req.params.user_id, {
       include: [{
         model: Show,
-        attributes: ['title', 'img_url']
+        attributes: ['id', 'title', 'img_url', 'genreId']
       }]
     })
     res.json({singleUser})
