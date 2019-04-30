@@ -15,14 +15,12 @@ class TVShows extends React.Component {
     await this.getShows()
   }
 
-  async getShows(){
+  getShows = async() =>{
     const res = await axios.get(`${BASE_URL}/shows`)
-    const shows = res.data.shows
-    console.log(shows)
+    const shows = res.data.showData
     this.setState({
       shows: shows
     })
-    console.log(this.state.shows)
   }
 
   render(){
@@ -36,3 +34,5 @@ class TVShows extends React.Component {
 }
 
 export default TVShows
+
+// <ShowsList shows={this.state.shows}/>

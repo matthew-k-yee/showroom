@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import UserInfo from './UserInfo'
+// import UserInfo from './UserInfo'
 
 const BASE_URL = 'http://localhost:3000'
 
@@ -19,7 +19,7 @@ class SingleUser extends React.Component {
   }
 
   async getUser() {
-    const res = await axios.get(`${BASE_URL}/users/${this.state.id}/shows`)
+    const res = await axios.get(`${BASE_URL}/shows/${this.state.id}/shows`)
     this.setState({
       user: res.data.singleUser,
       shows: res.data.singleUser.shows

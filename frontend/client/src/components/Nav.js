@@ -2,20 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
-  return (
-    <nav className='navbar navbar-expand-lg navbar-light bg-light'>
+  return (  
+    <nav className='"navbar navbar-light bg-light navbar-expand-lg'>
       <ul className='navbar-nav'>
-        <li className="nav-item">
-        <Link to='/'>Home</Link>
+        <li className="navbar-item">
+        <Link className="nav-link" to='/'>Home</Link>
         </li>
-        <li className="nav-item">
-          <Link to='/users'>Users</Link>
+        <li className="navbar-item">
+          <Link className="nav-link" to='/users'>Users</Link>
         </li>
-        <li className="nav-item">
-          <Link to='/tvshows'>TV Shows</Link>
+        <li className="navbar-item">
+          <Link className="nav-link" to='/tvshows'>TV Shows</Link>
         </li>
-        <li className="nav-item">
-          <Link to='/genres'>Genres</Link>
+        <li className="navbar-item">
+          <Link  className="nav-link" to='/genres'>Genres</Link>
         </li>
     </ul>
     </nav>

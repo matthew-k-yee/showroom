@@ -1,15 +1,12 @@
 import React from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom';
 import AddNewShow from './AddNewShow'
-import AllUsers from './AllUsers'
+import axios from 'axios'
 
 const BASE_URL = 'http://localhost:3000'
-class Users extends React.Component {
+class PostShow extends React.Component {
   constructor(props){
     super(props)
     this.state = ({
-      users: [],
       shows: [],
       showData: {
         title: '',
@@ -23,17 +20,9 @@ class Users extends React.Component {
   }
 
   async componentDidMount() {
-    await this.getUsers()
     await this.getShow()
   }
 
-  async getUsers() {
-    const resp = await axios.get(`${BASE_URL}/users`)
-    const users = resp.data.users
-    this.setState({
-      users: users
-    })
-  }
 
   async getShow() {
     const resp = await axios.get(`${BASE_URL}/shows`)
@@ -79,22 +68,18 @@ class Users extends React.Component {
   }
 
   render() {
-    const match = this.props.match
     return (
       <div>
-      <Link to={`${match.url}/post`}>
-      <p>POST NEW SHOW</p></Link>
-        <AllUsers users={this.state.users} match={this.props.match}/>
+        <AddNewShow 
+          title={this.state.showData.title}
+          img_url={this.state.showData.img_url}
+          genre={this.state.showData.genre.genre_name}
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}/>
       </div>
     )
   }
 }
 
-export default Users
 
-// <AddNewShow 
-// title={this.state.showData.title}
-// img_url={this.state.showData.img_url}
-// genre={this.state.showData.genre.genre_name}
-// onChange={this.handleChange}
-// onSubmit={this.handleSubmit}/>
+export default PostShow

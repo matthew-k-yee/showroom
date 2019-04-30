@@ -6,9 +6,9 @@ const UserInfo = props => {
     <div>
       <h2>Profile Page</h2>
       <h3>User: {username}</h3>
-      {props.shows.map((show, index) => (
-        <div  key = {show.index}>
-            <h3>{show.title}</h3>
+      {props.shows.map((show) => (
+        <div key = {show.id}>
+            <h2>{show.title}</h2>
             <img src={show.img_url} alt={show.title}/>
         </div>
       ))}

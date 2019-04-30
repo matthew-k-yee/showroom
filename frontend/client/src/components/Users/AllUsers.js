@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const AllUsers = props => {
   const users = props.users
-  console.log(users)
   const match = props.match
   return (
     <div>
