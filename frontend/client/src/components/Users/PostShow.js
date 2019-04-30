@@ -19,67 +19,68 @@ class PostShow extends React.Component {
     })
   }
 
-  async componentDidMount() {
-    await this.getShow()
-  }
+  // async componentDidMount() {
+  //   await this.getShow()
+  // }
 
 
-  async getShow() {
-    const resp = await axios.get(`${BASE_URL}/shows`)
-    // console.log(resp)
-    const shows = resp.data.showData;
-    // console.log(shows)
-    this.setState({
-      shows: shows
-    })
-  }
+  // async getShow() {
+  //   const resp = await axios.get(`${BASE_URL}/shows`)
+  //   // console.log(resp)
+  //   const shows = resp.data.showData;
+  //   // console.log(shows)
+  //   this.setState({
+  //     shows: shows
+  //   })
+  // }
 
-  handleChange = e => {
-    const { name, value } = e.target
-    this.setState( prevState => {
-      return {
-        showData: {
-          ...prevState.showData,
-          [name]: value
-        }
-      }
-    })
-  }
+  // handleChange = e => {
+  //   const { name, value } = e.target
+  //   this.setState( prevState => {
+  //     return {
+  //       showData: {
+  //         ...prevState.showData,
+  //         [name]: value
+  //       }
+  //     }
+  //   })
+  // }
 
-  async addShow(newShow) {
-    const response = await axios.post(`${BASE_URL}/shows`, newShow);
-    const show = response.data
-    this.setState( prevState => {
-      return {
-        shows: [...prevState.shows, show],
-        showData: {
-          title: '',
-          img_url: '',
-          genre: '',
-          userId: 1
-        }
-      }
-    })
-  }
+  // async addShow(newShow) {
+  //   const response = await axios.post(`${BASE_URL}/shows`, newShow);
+  //   const show = response.data
+  //   this.setState( prevState => {
+  //     return {
+  //       shows: [...prevState.shows, show],
+  //       showData: {
+  //         title: '',
+  //         img_url: '',
+  //         genre: '',
+  //         userId: 1
+  //       }
+  //     }
+  //   })
+  // }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
-    await this.addShow(this.state.showData)
-  }
+  // handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   await this.addShow(this.state.showData)
+  // }
 
   render() {
     return (
       <div>
-        <AddNewShow 
-          title={this.state.showData.title}
-          img_url={this.state.showData.img_url}
-          genre={this.state.showData.genre.genre_name}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}/>
+        <h1>Hello</h1>
       </div>
-    )
+      )
+    }
   }
-}
-
-
-export default PostShow
+  
+  
+  export default PostShow
+  // <AddNewShow 
+  //   title={this.state.showData.title}
+  //   img_url={this.state.showData.img_url}
+  //   genre={this.state.showData.genre.genre_name}
+  //   onChange={this.handleChange}
+  //   onSubmit={this.handleSubmit}/>

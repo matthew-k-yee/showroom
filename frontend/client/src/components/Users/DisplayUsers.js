@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import ExampleUser from './ExampleUser'
 import AddNewShow from './AddNewShow'
 import AllUsers from './AllUsers'
 
@@ -83,7 +84,14 @@ class Users extends React.Component {
     return (
       <div>
       <Link to={`${match.url}/post`}>
+      <AddNewShow 
+      title={this.state.showData.title}
+      img_url={this.state.showData.img_url}
+      genre={this.state.showData.genre.genre_name}
+      onChange={this.handleChange}
+      onSubmit={this.handleSubmit}/>
       <p>POST NEW SHOW</p></Link>
+        <ExampleUser users={this.state.users}/>
         <AllUsers users={this.state.users} match={this.props.match}/>
       </div>
     )
@@ -92,9 +100,3 @@ class Users extends React.Component {
 
 export default Users
 
-// <AddNewShow 
-// title={this.state.showData.title}
-// img_url={this.state.showData.img_url}
-// genre={this.state.showData.genre.genre_name}
-// onChange={this.handleChange}
-// onSubmit={this.handleSubmit}/>
